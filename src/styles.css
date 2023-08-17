@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+.submit-button,.submit-button:hover
+{
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}

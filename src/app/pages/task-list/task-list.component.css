@@ -1,0 +1,38 @@
+th,td
+{
+    white-space: nowrap;
+}
+.forTitleSorting
+{
+    background: transparent;
+    padding: 0px 10px;
+    border-radius: 50px;
+}
+@media (max-width: 767px) {
+    .filter-block
+    {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .filter-block-upper
+    {
+        display: initial !important;
+    }
+    .sorting-block
+    {
+        text-align: center;
+    }
+    .sorting-block button
+    {
+        margin-bottom: 10px;
+    }
+  }
+  span.filter-text {
+    font-size: 20px;
+    margin-right: 5px;
+}
+.filter-block-upper
+{
+    display: flex;
+    align-items: center;
+}

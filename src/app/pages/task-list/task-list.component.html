@@ -1,0 +1,45 @@
+<div class="">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="filter-block-upper">
+            <div class="filter-block">
+                <span class="filter-text">Filter</span><select placeholder="Select" [(ngModel)]="selectedValue" (ngModelChange)="onSelectedValueChange()">
+                    
+                  <option value="Today">Today</option>
+                    <option value="Tomorrow">Tomorrow</option>
+                  </select>
+            </div>
+            <div class="sorting-block">
+                <button class="forTitleSorting mx-3"(click)="sortByTitle()">Sort by Title</button>
+                <button class="forTitleSorting"(click)="sortTasksBySelectedDate()">Sort by Due Date</button>
+                <button class="forTitleSorting ms-3"(click)="reset()">Reset</button>
+            </div>
+        </div>
+        </div>
+    </div>
+     
+</div>
+
+<div class="table-responsive">
+<table class="table table-borderless table-hover table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of taskData | filterPipe: selectedFilter ; let  i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.selectedDate | date:'dd-MM-yyyy'}}</td>
+        <td><div class=""><button class="btn" [routerLink]="['/create', item.id]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575t1.412.575l1.4 1.4q.575.575.6 1.388t-.55 1.387L19.3 8.925ZM17.85 10.4L7.25 21H3v-4.25l10.6-10.6l4.25 4.25Z"/></svg></button><button class="btn " (click)="deleteTask(item.id);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7Zm2-4h2V8H9v9Zm4 0h2V8h-2v9Z"/></svg></button></div></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
